@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/.profile.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v12">
+<meta name="syntax" content="sh">
+<meta name="settings" content="number_lines,use_css,pre_wrap,no_foldcolumn,expand_tabs,prevent_copy=">
+<meta name="colorscheme" content="macvim">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+* { font-size: 1em; }
+.String { color: #4a708b; }
+.Constant { color: #ff8c00; }
+.Statement { color: #b03060; font-weight: bold; }
+.PreProc { color: #1874cd; }
+.LineNr { color: #888888; background-color: #e6e6e6; padding-bottom: 1px; }
+.Comment { color: #0000ee; font-style: italic; }
+.Special { color: #8a2be2; }
+.Identifier { color: #458b74; }
+.Error { color: #ffffff; background-color: #cd2626; padding-bottom: 1px; }
+-->
+</style>
+</head>
+<body>
+<pre id='vimCodeElement'>
+<span class="LineNr"> 1 </span><span class="Comment">## environment variables</span>
+<span class="LineNr"> 2 </span><span class="Statement">export</span><span class="Identifier"> EDITOR=vim</span>
+<span class="LineNr"> 3 </span><span class="Statement">export</span><span class="Identifier"> GREP_OPTIONS=</span><span class="Statement">&quot;</span><span class="String">--color</span><span class="Statement">&quot;</span>
+<span class="LineNr"> 4 </span>
+<span class="LineNr"> 5 </span><span class="Comment">## OS-specific setup</span>
+<span class="LineNr"> 6 </span><span class="Identifier">UNAME</span>=<span class="Error">$(</span><span class="Special">uname</span><span class="Error">)</span>
+<span class="LineNr"> 7 </span><span class="Statement">if </span>  <span class="Statement">[</span> <span class="PreProc">$UNAME</span> <span class="Statement">==</span> <span class="String">'Darwin'</span> <span class="Statement">]</span><span class="Statement">;</span> <span class="Statement">then</span>
+<span class="LineNr"> 8 </span>    <span class="Statement">export</span><span class="Identifier"> CLICOLOR=1</span>
+<span class="LineNr"> 9 </span>    alias    <span class="Identifier">top</span>=<span class="Statement">'</span><span class="String">top -o cpu</span><span class="Statement">'</span>
+<span class="LineNr">10 </span>    alias   <span class="Identifier">mtop</span>=<span class="Statement">'</span><span class="String">top -o pid -U $(whoami)</span><span class="Statement">'</span>
+<span class="LineNr">11 </span><span class="Statement">elif</span> <span class="Statement">[</span> <span class="PreProc">$UNAME</span> <span class="Statement">==</span> <span class="String">'FreeBSD'</span> <span class="Statement">]</span><span class="Statement">;</span> <span class="Statement">then</span>
+<span class="LineNr">12 </span>    <span class="Statement">export</span><span class="Identifier"> CLICOLOR=1</span>
+<span class="LineNr">13 </span>    <span class="Statement">export</span><span class="Identifier"> PAGER=</span><span class="Statement">'</span><span class="String">less -is</span><span class="Statement">'</span>
+<span class="LineNr">14 </span><span class="Statement">elif</span> <span class="Statement">[</span> <span class="PreProc">$UNAME</span> <span class="Statement">==</span> <span class="String">'Linux'</span> <span class="Statement">]</span><span class="Statement">;</span> <span class="Statement">then</span>
+<span class="LineNr">15 </span>    alias     <span class="Identifier">ls</span>=<span class="Statement">'</span><span class="String">ls --color</span><span class="Statement">'</span>
+<span class="LineNr">16 </span><span class="Statement">fi</span>
+<span class="LineNr">17 </span>
+<span class="LineNr">18 </span><span class="Comment">## bash settings, aliases, &amp; functions</span>
+<span class="LineNr">19 </span><span class="Statement">if </span><span class="Statement">[</span> <span class="Statement">-z</span> <span class="Statement">&quot;</span><span class="PreProc">$VIRTUAL_ENV</span><span class="Statement">&quot;</span> <span class="Statement">]</span><span class="Statement">;</span> <span class="Statement">then</span>
+<span class="LineNr">20 </span>    <span class="Statement">export</span><span class="Identifier"> PS1=</span><span class="Statement">'</span><span class="String">\[\e[1m\]\u@\h:\[\e[1;34m\]\w\[\e[m\]\$ </span><span class="Statement">'</span>
+<span class="LineNr">21 </span><span class="Statement">fi</span>
+<span class="LineNr">22 </span><span class="Identifier">PROMPT_COMMAND</span>=<span class="Statement">&quot;</span><span class="String">history -a; </span><span class="PreProc">$PROMPT_COMMAND</span><span class="Statement">&quot;</span> <span class="Comment"># immediately append each command to the history file</span>
+<span class="LineNr">23 </span><span class="Identifier">HISTSIZE</span>=<span class="Constant">10000</span>
+<span class="LineNr">24 </span><span class="Identifier">HISTFILESIZE</span>=<span class="Constant">10000</span>
+<span class="LineNr">25 </span><span class="Identifier">HISTCONTROL</span>=ignoredups:ignorespace
+<span class="LineNr">26 </span><span class="Identifier">HISTIGNORE</span>=..:...:....:ls:l:l.:l@:la:ll:lt:<span class="Statement">cd</span>:<span class="Statement">pwd</span>
+<span class="LineNr">27 </span>
+<span class="LineNr">28 </span>alias      <span class="Identifier">l</span>=<span class="Statement">'</span><span class="String">ls -lah</span><span class="Statement">'</span>
+<span class="LineNr">29 </span>alias     <span class="Identifier">l.</span>=<span class="Statement">'</span><span class="String">ls -ladh .[^.]*</span><span class="Statement">'</span>
+<span class="LineNr">30 </span>alias     <span class="Identifier">l@</span>=<span class="Statement">'</span><span class="String">ls -lh@</span><span class="Statement">'</span>
+<span class="LineNr">31 </span>alias     <span class="Identifier">la</span>=<span class="Statement">'</span><span class="String">ls -A</span><span class="Statement">'</span>
+<span class="LineNr">32 </span>alias     <span class="Identifier">ll</span>=<span class="Statement">'</span><span class="String">ls -lh</span><span class="Statement">'</span>
+<span class="LineNr">33 </span>alias     <span class="Identifier">lt</span>=<span class="Statement">'</span><span class="String">ls -ltrh</span><span class="Statement">'</span>
+<span class="LineNr">34 </span>alias     <span class="Identifier">..</span>=<span class="Statement">'</span><span class="String">cd ..</span><span class="Statement">'</span>
+<span class="LineNr">35 </span>alias    <span class="Identifier">...</span>=<span class="Statement">'</span><span class="String">cd ../..</span><span class="Statement">'</span>
+<span class="LineNr">36 </span>alias   <span class="Identifier">....</span>=<span class="Statement">'</span><span class="String">cd ../../..</span><span class="Statement">'</span>
+<span class="LineNr">37 </span>alias   <span class="Identifier">grep</span>=<span class="Statement">'</span><span class="String">grep -I</span><span class="Statement">'</span>
+<span class="LineNr">38 </span>alias   <span class="Identifier">less</span>=<span class="Statement">'</span><span class="String">less -i</span><span class="Statement">'</span>
+<span class="LineNr">39 </span>alias     <span class="Identifier">cp</span>=<span class="Statement">'</span><span class="String">cp -i</span><span class="Statement">'</span>
+<span class="LineNr">40 </span>alias     <span class="Identifier">mv</span>=<span class="Statement">'</span><span class="String">mv -i</span><span class="Statement">'</span>
+<span class="LineNr">41 </span>alias    <span class="Identifier">scp</span>=<span class="Statement">'</span><span class="String">scp -pr</span><span class="Statement">'</span>
+<span class="LineNr">42 </span>alias      <span class="Identifier">v</span>=<span class="Statement">'</span><span class="String">mvim --remote-tab-silent</span><span class="Statement">'</span>
+<span class="LineNr">43 </span>
+<span class="LineNr">44 </span><span class="Identifier">lxclean() {</span> <span class="Statement">for</span> f <span class="Statement">in</span> *.tex<span class="Statement">;</span> <span class="Statement">do</span> rm <span class="Special">-vf</span> <span class="PreProc">${</span><span class="PreProc">f</span><span class="Error">%tex</span><span class="PreProc">}</span><span class="Special">{</span>aux,bbl,blg,dvi,log,out,pdf,ps,toc<span class="Special">}</span><span class="Statement">;</span> <span class="Statement">done</span><span class="Statement">;</span> <span class="Identifier">}</span>
+<span class="LineNr">45 </span><span class="Identifier">pyclean() {</span> find<span class="Statement"> . </span>-name <span class="Statement">&quot;</span><span class="String">*.py[co]</span><span class="Statement">&quot;</span> <span class="Special">-delete</span><span class="Statement">;</span> <span class="Identifier">}</span>
+<span class="LineNr">46 </span><span class="Identifier">svnclean() {</span> find<span class="Statement"> . </span>-name .svn <span class="Special">-exec</span> rm <span class="Special">-vrf</span> <span class="Special">{}</span> +<span class="Statement">;</span> <span class="Identifier">}</span>
+<span class="LineNr">47 </span><span class="Identifier">termreset() {</span> <span class="Statement">echo</span><span class="String"> -ne </span><span class="Statement">&quot;</span><span class="Special">\033</span><span class="String">]0;Terminal</span><span class="Special">\007</span><span class="Statement">&quot;</span><span class="Statement">;</span> <span class="Identifier">}</span>
+<span class="LineNr">48 </span>
+<span class="LineNr">49 </span><span class="Comment">## bash completion</span>
+<span class="LineNr">50 </span><span class="Statement">if </span>  <span class="Statement">[</span> <span class="Statement">-f</span> /opt/local/etc/profile.d/bash_completion.sh <span class="Statement">]</span><span class="Statement">;</span> <span class="Statement">then</span>
+<span class="LineNr">51 </span>   <span class="Statement"> . </span>/opt/local/etc/profile.d/bash_completion.sh
+<span class="LineNr">52 </span><span class="Statement">elif</span> <span class="Statement">[</span> <span class="Statement">-f</span> /usr/local/share/bash-completion/bash_completion.sh <span class="Statement">]</span><span class="Statement">;</span> <span class="Statement">then</span>
+<span class="LineNr">53 </span>   <span class="Statement"> . </span>/usr/local/share/bash-completion/bash_completion.sh
+<span class="LineNr">54 </span><span class="Statement">fi</span>
+<span class="LineNr">55 </span>
+<span class="LineNr">56 </span><span class="Comment">## augment PATH</span>
+<span class="LineNr">57 </span><span class="Statement">if </span><span class="Statement">[</span> <span class="Statement">-d</span> /opt/local/bin <span class="Statement">]</span><span class="Statement">;</span> <span class="Statement">then</span> <span class="Comment"># MacPorts</span>
+<span class="LineNr">58 </span>    <span class="Identifier">PATH</span>=/opt/local/bin:/opt/local/sbin:<span class="PreProc">$PATH</span>
+<span class="LineNr">59 </span><span class="Statement">fi</span>
+<span class="LineNr">60 </span><span class="Statement">if </span><span class="Statement">[</span> <span class="Statement">-d</span> ~/Applications <span class="Statement">]</span><span class="Statement">;</span> <span class="Statement">then</span>
+<span class="LineNr">61 </span>    <span class="Identifier">PATH</span>=~/Applications:<span class="PreProc">$PATH</span>
+<span class="LineNr">62 </span><span class="Statement">fi</span>
+<span class="LineNr">63 </span><span class="Statement">if </span><span class="Statement">[</span> <span class="Statement">-d</span> ~/bin <span class="Statement">]</span><span class="Statement">;</span> <span class="Statement">then</span>
+<span class="LineNr">64 </span>    <span class="Identifier">PATH</span>=~/bin:<span class="PreProc">$PATH</span>
+<span class="LineNr">65 </span><span class="Statement">fi</span>
+<span class="LineNr">66 </span>
+<span class="LineNr">67 </span><span class="Comment">## location-specific settings</span>
+<span class="LineNr">68 </span><span class="Statement">if </span><span class="Statement">[</span> <span class="Statement">-f</span> ~/.profile.local <span class="Statement">]</span><span class="Statement">;</span> <span class="Statement">then</span>
+<span class="LineNr">69 </span>   <span class="Statement"> . </span>~/.profile.local
+<span class="LineNr">70 </span><span class="Statement">fi</span>
+<span class="LineNr">71 </span>
+<span class="LineNr">72 </span><span class="Comment">## remove duplicates from PATH</span>
+<span class="LineNr">73 </span><span class="Identifier">PATH</span>=<span class="Error">$(</span><span class="Special">awk -v </span><span class="Identifier">RS</span>=<span class="Statement">'</span><span class="String">:</span><span class="Statement">'</span><span class="Special"> </span><span class="Statement">'</span><span class="String">{ if (!arr[$0]++) {printf(&quot;%s%s&quot;,!ln++?&quot;&quot;:&quot;:&quot;,$0)}}</span><span class="Statement">'</span><span class="Special"> </span><span class="Statement">&lt;&lt;</span><span class="Special">&lt; </span><span class="PreProc">$PATH</span><span class="Error">)</span>
+</pre>
+</body>
+</html>

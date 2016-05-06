@@ -1,0 +1,436 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/.vimrc.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v12">
+<meta name="syntax" content="vim">
+<meta name="settings" content="number_lines,use_css,pre_wrap,no_foldcolumn,expand_tabs,prevent_copy=">
+<meta name="colorscheme" content="macvim">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+* { font-size: 1em; }
+.Normal { color: #000000; background-color: #ffffff; padding-bottom: 1px; }
+.Statement { color: #b03060; font-weight: bold; }
+.Type { color: #008b00; font-weight: bold; }
+.PreProc { color: #1874cd; }
+.String { color: #4a708b; }
+.LineNr { color: #888888; background-color: #e6e6e6; padding-bottom: 1px; }
+.Comment { color: #0000ee; font-style: italic; }
+.Constant { color: #ff8c00; }
+.Special { color: #8a2be2; }
+.Identifier { color: #458b74; }
+-->
+</style>
+</head>
+<body>
+<pre id='vimCodeElement'>
+<span class="LineNr">  1 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">  2 </span><span class="Comment">&quot; MacVim specific configuration</span>
+<span class="LineNr">  3 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">  4 </span>
+<span class="LineNr">  5 </span><span class="Statement">if</span> <span class="Identifier">has</span><span class="Special">(</span><span class="String">&quot;gui_macvim&quot;</span><span class="Special">)</span> <span class="Statement">&amp;&amp;</span> <span class="Identifier">has</span><span class="Special">(</span><span class="String">&quot;gui_running&quot;</span><span class="Special">)</span>
+<span class="LineNr">  6 </span>
+<span class="LineNr">  7 </span><span class="Comment">    &quot; Resize the window</span>
+<span class="LineNr">  8 </span>    <span class="Statement">set</span> <span class="PreProc">lines</span>=86
+<span class="LineNr">  9 </span>    <span class="Statement">set</span> <span class="PreProc">columns</span>=155
+<span class="LineNr"> 10 </span>    <span class="Statement">set</span> <span class="PreProc">guifont</span>=Menlo<span class="Statement">:</span>h12
+<span class="LineNr"> 11 </span>
+<span class="LineNr"> 12 </span><span class="Comment">    &quot; Remove the toolbar</span>
+<span class="LineNr"> 13 </span>    <span class="Statement">set</span> <span class="PreProc">guioptions</span>-=T
+<span class="LineNr"> 14 </span>
+<span class="LineNr"> 15 </span><span class="Comment">    &quot; Always show the tabline</span>
+<span class="LineNr"> 16 </span>    <span class="Statement">set</span> <span class="PreProc">showtabline</span>=2
+<span class="LineNr"> 17 </span>
+<span class="LineNr"> 18 </span><span class="Comment">    &quot; Disable cursor blinking</span>
+<span class="LineNr"> 19 </span>    <span class="Statement">set</span> <span class="PreProc">guicursor</span>=a<span class="Statement">:</span>blinkon0
+<span class="LineNr"> 20 </span>
+<span class="LineNr"> 21 </span><span class="Comment">    &quot; Define a custom label when using GUI tabs</span>
+<span class="LineNr"> 22 </span>    <span class="Statement">set</span> <span class="PreProc">guitablabel</span>=%m\ %t
+<span class="LineNr"> 23 </span>
+<span class="LineNr"> 24 </span><span class="Comment">    &quot; Allow backspacing over any char in insert mode</span>
+<span class="LineNr"> 25 </span>    <span class="Statement">set</span> <span class="PreProc">backspace</span>=indent<span class="Statement">,</span>eol<span class="Statement">,</span>start
+<span class="LineNr"> 26 </span>
+<span class="LineNr"> 27 </span><span class="Comment">    &quot; Maximize when entering fullscreen mode</span>
+<span class="LineNr"> 28 </span>    <span class="Statement">set</span> <span class="PreProc">fuoptions</span>=maxvert<span class="Statement">,</span>maxhorz
+<span class="LineNr"> 29 </span>
+<span class="LineNr"> 30 </span><span class="Statement">endif</span>
+<span class="LineNr"> 31 </span>
+<span class="LineNr"> 32 </span>
+<span class="LineNr"> 33 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr"> 34 </span><span class="Comment">&quot; General settings</span>
+<span class="LineNr"> 35 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr"> 36 </span>
+<span class="LineNr"> 37 </span><span class="Comment">&quot; Display line number in front of each line in the left margin</span>
+<span class="LineNr"> 38 </span><span class="Statement">set</span> <span class="PreProc">number</span>
+<span class="LineNr"> 39 </span><span class="Statement">set</span> <span class="PreProc">numberwidth</span>=5
+<span class="LineNr"> 40 </span>
+<span class="LineNr"> 41 </span><span class="Comment">&quot; Display commands in the bottom right corner as they are typed</span>
+<span class="LineNr"> 42 </span><span class="Statement">set</span> <span class="PreProc">showcmd</span>
+<span class="LineNr"> 43 </span>
+<span class="LineNr"> 44 </span><span class="Comment">&quot; Syntax highlighting</span>
+<span class="LineNr"> 45 </span><span class="Statement">syntax</span> <span class="Type">on</span>
+<span class="LineNr"> 46 </span>
+<span class="LineNr"> 47 </span><span class="Comment">&quot; Display a list of matches above the command line when invoking completion</span>
+<span class="LineNr"> 48 </span><span class="Statement">set</span> <span class="PreProc">wildmenu</span>
+<span class="LineNr"> 49 </span>
+<span class="LineNr"> 50 </span><span class="Comment">&quot; Do not redraw when running macros</span>
+<span class="LineNr"> 51 </span><span class="Statement">set</span> <span class="PreProc">lazyredraw</span>
+<span class="LineNr"> 52 </span>
+<span class="LineNr"> 53 </span><span class="Comment">&quot; Turn off syntax highlighting for printing and set papersize</span>
+<span class="LineNr"> 54 </span><span class="Statement">set</span> <span class="PreProc">printoptions</span>=syntax<span class="Statement">:</span>n<span class="Statement">,</span>paper<span class="Statement">:</span>letter
+<span class="LineNr"> 55 </span>
+<span class="LineNr"> 56 </span><span class="Comment">&quot; Indenting (cindent or smartindent)</span>
+<span class="LineNr"> 57 </span><span class="Statement">set</span> <span class="PreProc">smartindent</span>
+<span class="LineNr"> 58 </span>
+<span class="LineNr"> 59 </span><span class="Comment">&quot; Visualization for tabs and trailing spaces</span>
+<span class="LineNr"> 60 </span><span class="Statement">set</span> <span class="PreProc">listchars</span>=tab<span class="Statement">:</span>&lt;-<span class="Statement">,</span>trail<span class="Statement">:</span>~
+<span class="LineNr"> 61 </span>
+<span class="LineNr"> 62 </span><span class="Comment">&quot; Don't break words</span>
+<span class="LineNr"> 63 </span><span class="Statement">set</span> <span class="PreProc">linebreak</span>
+<span class="LineNr"> 64 </span><span class="Comment">&quot;set showbreak=&gt;&gt;&gt;                       &quot; Mark broken lines with &gt;&gt;&gt;</span>
+<span class="LineNr"> 65 </span>
+<span class="LineNr"> 66 </span><span class="Comment">&quot; Display as many lines as possible</span>
+<span class="LineNr"> 67 </span><span class="Statement">set</span> <span class="PreProc">display</span>=lastline
+<span class="LineNr"> 68 </span>
+<span class="LineNr"> 69 </span><span class="Comment">&quot; Always try to keep this many lines above and below the cursor</span>
+<span class="LineNr"> 70 </span><span class="Statement">set</span> <span class="PreProc">scrolloff</span>=7
+<span class="LineNr"> 71 </span>
+<span class="LineNr"> 72 </span><span class="Comment">&quot; Allow virtual editing in block mode</span>
+<span class="LineNr"> 73 </span><span class="Statement">set</span> <span class="PreProc">virtualedit</span>=block
+<span class="LineNr"> 74 </span>
+<span class="LineNr"> 75 </span><span class="Comment">&quot; No bell at all</span>
+<span class="LineNr"> 76 </span><span class="Statement">set</span> <span class="PreProc">visualbell</span> <span class="PreProc">t_vb</span>=
+<span class="LineNr"> 77 </span>
+<span class="LineNr"> 78 </span><span class="Comment">&quot; Prefer vertical diffsplits and ignore whitespace</span>
+<span class="LineNr"> 79 </span><span class="Statement">set</span> <span class="PreProc">diffopt</span>+=vertical<span class="Statement">,</span>iwhite
+<span class="LineNr"> 80 </span>
+<span class="LineNr"> 81 </span><span class="Comment">&quot; Put only one space after '.', '?, and '!' with a join command</span>
+<span class="LineNr"> 82 </span><span class="Statement">set</span> <span class="PreProc">nojoinspaces</span>
+<span class="LineNr"> 83 </span>
+<span class="LineNr"> 84 </span><span class="Comment">&quot; Stop syntax highlighting after this many characters per line (paragraph)</span>
+<span class="LineNr"> 85 </span><span class="Statement">set</span> <span class="PreProc">synmaxcol</span>=5000
+<span class="LineNr"> 86 </span>
+<span class="LineNr"> 87 </span><span class="Comment">&quot; Set the default language to US-English</span>
+<span class="LineNr"> 88 </span><span class="Statement">set</span> <span class="PreProc">spelllang</span>=en_us
+<span class="LineNr"> 89 </span>
+<span class="LineNr"> 90 </span><span class="Comment">&quot; Increase the maximum number to tab pages</span>
+<span class="LineNr"> 91 </span><span class="Statement">set</span> <span class="PreProc">tabpagemax</span>=25
+<span class="LineNr"> 92 </span>
+<span class="LineNr"> 93 </span>
+<span class="LineNr"> 94 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr"> 95 </span><span class="Comment">&quot; Searching &amp; replacing</span>
+<span class="LineNr"> 96 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr"> 97 </span>
+<span class="LineNr"> 98 </span><span class="Comment">&quot; Incremental search</span>
+<span class="LineNr"> 99 </span><span class="Statement">set</span> <span class="PreProc">incsearch</span>
+<span class="LineNr">100 </span>
+<span class="LineNr">101 </span><span class="Comment">&quot; Highlight search terms</span>
+<span class="LineNr">102 </span><span class="Statement">set</span> <span class="PreProc">hlsearch</span>
+<span class="LineNr">103 </span>
+<span class="LineNr">104 </span><span class="Comment">&quot; Ignore case when searching only if all letters are lowercase</span>
+<span class="LineNr">105 </span><span class="Statement">set</span> <span class="PreProc">ignorecase</span>
+<span class="LineNr">106 </span><span class="Statement">set</span> <span class="PreProc">smartcase</span>
+<span class="LineNr">107 </span>
+<span class="LineNr">108 </span><span class="Comment">&quot; Wrap search when EOF is reached</span>
+<span class="LineNr">109 </span><span class="Statement">set</span> <span class="PreProc">wrapscan</span>
+<span class="LineNr">110 </span>
+<span class="LineNr">111 </span>
+<span class="LineNr">112 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">113 </span><span class="Comment">&quot; Tab behavior</span>
+<span class="LineNr">114 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">115 </span>
+<span class="LineNr">116 </span><span class="Comment">&quot; Insert spaces instead of tabs</span>
+<span class="LineNr">117 </span><span class="Statement">set</span> <span class="PreProc">expandtab</span>
+<span class="LineNr">118 </span>
+<span class="LineNr">119 </span><span class="Comment">&quot; Size of a tab</span>
+<span class="LineNr">120 </span><span class="Statement">set</span> <span class="PreProc">tabstop</span>=4
+<span class="LineNr">121 </span>
+<span class="LineNr">122 </span><span class="Comment">&quot; Number of spaces inserted for indentation</span>
+<span class="LineNr">123 </span><span class="Statement">set</span> <span class="PreProc">shiftwidth</span>=4
+<span class="LineNr">124 </span>
+<span class="LineNr">125 </span><span class="Comment">&quot; Don't show possible completions that don't match the case of existing text</span>
+<span class="LineNr">126 </span><span class="Statement">set</span> <span class="PreProc">infercase</span>
+<span class="LineNr">127 </span>
+<span class="LineNr">128 </span><span class="Comment">&quot; Don't show more than 10 items in the popup menu</span>
+<span class="LineNr">129 </span><span class="Statement">set</span> <span class="PreProc">pumheight</span>=10
+<span class="LineNr">130 </span>
+<span class="LineNr">131 </span><span class="Comment">&quot; Where to look for possible completions (spell check must be on for kspell option to be effective [slow])</span>
+<span class="LineNr">132 </span><span class="Comment">&quot;set complete=.,w,u,b,kspell</span>
+<span class="LineNr">133 </span><span class="Statement">set</span> <span class="PreProc">complete</span>=.<span class="Statement">,</span>w<span class="Statement">,</span>u<span class="Statement">,</span>b
+<span class="LineNr">134 </span>
+<span class="LineNr">135 </span><span class="Comment">&quot; How to show and insert possible completions</span>
+<span class="LineNr">136 </span><span class="Statement">set</span> <span class="PreProc">completeopt</span>=menu<span class="Statement">,</span>longest
+<span class="LineNr">137 </span>
+<span class="LineNr">138 </span>
+<span class="LineNr">139 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">140 </span><span class="Comment">&quot; Status line</span>
+<span class="LineNr">141 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">142 </span>
+<span class="LineNr">143 </span><span class="Comment">&quot; Always display the status line</span>
+<span class="LineNr">144 </span><span class="Statement">set</span> <span class="PreProc">laststatus</span>=2
+<span class="LineNr">145 </span>
+<span class="LineNr">146 </span><span class="Comment">&quot; Format string</span>
+<span class="LineNr">147 </span><span class="Statement">set</span> <span class="PreProc">statusline</span>=%4(%m%)\ %f\ %y\ %{'['.&amp;ff.'\ '.(&amp;fenc==''?&amp;enc<span class="Statement">:</span>&amp;fenc).']'}\ %r\ %=\Line\ %-4l\ \Col\ %-4c\ [%L\ lines]
+<span class="LineNr">148 </span>
+<span class="LineNr">149 </span>
+<span class="LineNr">150 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">151 </span><span class="Comment">&quot; Functions</span>
+<span class="LineNr">152 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">153 </span>
+<span class="LineNr">154 </span><span class="Comment">&quot; Insert a tab or complete the current word</span>
+<span class="LineNr">155 </span><span class="Statement">function</span>! CleverTab<span class="Special">(</span>direction<span class="Special">)</span>
+<span class="LineNr">156 </span>    <span class="Statement">if</span> <span class="Identifier">getline</span><span class="Special">(</span><span class="String">'.'</span><span class="Special">)</span>[<span class="Identifier">col</span><span class="Special">(</span><span class="String">'.'</span><span class="Special">)</span><span class="Statement">-</span><span class="Constant">2</span>] <span class="Statement">=~</span> <span class="String">'\s\|^$'</span>
+<span class="LineNr">157 </span>        <span class="Statement">return</span> <span class="String">&quot;\&lt;tab&gt;&quot;</span>
+<span class="LineNr">158 </span>    <span class="Statement">elseif</span> <span class="Identifier">a:direction</span>
+<span class="LineNr">159 </span>        <span class="Statement">return</span> <span class="String">&quot;\&lt;C-p&gt;&quot;</span>
+<span class="LineNr">160 </span>    <span class="Statement">else</span>
+<span class="LineNr">161 </span>        <span class="Statement">return</span> <span class="String">&quot;\&lt;C-n&gt;&quot;</span>
+<span class="LineNr">162 </span>    <span class="Statement">endif</span>
+<span class="LineNr">163 </span><span class="Statement">endfunction</span>
+<span class="LineNr">164 </span>
+<span class="LineNr">165 </span><span class="Comment">&quot; Reformat the whole file</span>
+<span class="LineNr">166 </span><span class="Statement">function</span>! ReformatFile<span class="Special">()</span>
+<span class="LineNr">167 </span>    <span class="Statement">exe</span> <span class="String">&quot;normal msHmtgg&quot;</span>
+<span class="LineNr">168 </span>    <span class="Statement">exe</span> <span class="String">&quot;normal gg=G&quot;</span>
+<span class="LineNr">169 </span>    <span class="Statement">exe</span> <span class="String">&quot;normal 'tzt`s&quot;</span>
+<span class="LineNr">170 </span><span class="Statement">endfunction</span>
+<span class="LineNr">171 </span>
+<span class="LineNr">172 </span><span class="Comment">&quot; Remove trailing spaces</span>
+<span class="LineNr">173 </span><span class="Statement">function</span>! RemoveTrailingSpaces<span class="Special">()</span>
+<span class="LineNr">174 </span>    <span class="Statement">exe</span> <span class="String">&quot;normal msHmtgg&quot;</span>
+<span class="LineNr">175 </span>    <span class="Constant">%</span><span class="Statement">s</span><span class="Special">/</span>\s\+$<span class="Special">//</span><span class="Special">e</span>
+<span class="LineNr">176 </span>    <span class="Statement">exe</span> <span class="String">&quot;normal 'tzt`s&quot;</span>
+<span class="LineNr">177 </span><span class="Statement">endfunction</span>
+<span class="LineNr">178 </span>
+<span class="LineNr">179 </span><span class="Comment">&quot; Remove trailing line feed characters</span>
+<span class="LineNr">180 </span><span class="Statement">function</span>! Dos2Unix<span class="Special">()</span>
+<span class="LineNr">181 </span>    <span class="Statement">exe</span> <span class="String">&quot;normal msHmtgg&quot;</span>
+<span class="LineNr">182 </span>    <span class="Constant">%</span><span class="Statement">s</span><span class="Special">/</span>\r<span class="Special">/</span>\r<span class="Special">/</span><span class="Special">g</span>
+<span class="LineNr">183 </span>    <span class="Statement">exe</span> <span class="String">&quot;normal 'tzt`s&quot;</span>
+<span class="LineNr">184 </span><span class="Statement">endfunction</span>
+<span class="LineNr">185 </span>
+<span class="LineNr">186 </span><span class="Comment">&quot; Send current or highlighted line(s) to Mac OS Terminal.app</span>
+<span class="LineNr">187 </span><span class="Statement">function</span>! SendToTerminal<span class="Special">(</span>visual, trim_leadspace<span class="Special">)</span> range
+<span class="LineNr">188 </span><span class="Comment">    &quot; move to next line if not in visual mode</span>
+<span class="LineNr">189 </span>    <span class="Statement">if</span> !<span class="Identifier">a:visual</span>
+<span class="LineNr">190 </span>        <span class="Statement">execute</span> <span class="String">&quot;normal \&lt;C-n&gt;&quot;</span>
+<span class="LineNr">191 </span>    <span class="Statement">endif</span>
+<span class="LineNr">192 </span>    <span class="Statement">let</span> <span class="Identifier">cmds</span> <span class="Statement">=</span> []
+<span class="LineNr">193 </span>    <span class="Statement">if</span> <span class="Identifier">a:trim_leadspace</span>
+<span class="LineNr">194 </span>        <span class="Statement">for</span> line <span class="Statement">in</span> <span class="Identifier">getline</span><span class="Special">(</span><span class="Identifier">a:firstline</span>,<span class="Identifier">a:lastline</span><span class="Special">)</span>
+<span class="LineNr">195 </span>            <span class="Statement">let</span> <span class="Identifier">cmds</span> <span class="Statement">+=</span> [<span class="Identifier">escape</span><span class="Special">(</span><span class="Identifier">escape</span><span class="Special">(</span><span class="Identifier">substitute</span><span class="Special">(</span>line, <span class="String">'^\s\+'</span>, <span class="String">''</span>, <span class="String">''</span><span class="Special">)</span>, <span class="String">'\&quot;'</span><span class="Special">)</span>, <span class="String">'\&quot;`!#$%'</span><span class="Special">)</span>]
+<span class="LineNr">196 </span>        <span class="Statement">endfor</span>
+<span class="LineNr">197 </span>    <span class="Statement">else</span>
+<span class="LineNr">198 </span>        <span class="Statement">for</span> line <span class="Statement">in</span> <span class="Identifier">getline</span><span class="Special">(</span><span class="Identifier">a:firstline</span>,<span class="Identifier">a:lastline</span><span class="Special">)</span>
+<span class="LineNr">199 </span>            <span class="Statement">let</span> <span class="Identifier">cmds</span> <span class="Statement">+=</span> [<span class="Identifier">escape</span><span class="Special">(</span><span class="Identifier">escape</span><span class="Special">(</span>line, <span class="String">'\&quot;'</span><span class="Special">)</span>, <span class="String">'\&quot;`!#$%'</span><span class="Special">)</span>]
+<span class="LineNr">200 </span>        <span class="Statement">endfor</span>
+<span class="LineNr">201 </span>    <span class="Statement">endif</span>
+<span class="LineNr">202 </span>    <span class="Statement">silent</span> <span class="Statement">execute</span> <span class="String">'!osascript -e &quot;tell application \&quot;Terminal\&quot; to do script \&quot;'</span> <span class="Statement">.</span> <span class="Identifier">join</span><span class="Special">(</span>cmds, <span class="String">'\n'</span><span class="Special">)</span> <span class="Statement">.</span> <span class="String">'\&quot; in window 1&quot;'</span>
+<span class="LineNr">203 </span><span class="Statement">endfunction</span>
+<span class="LineNr">204 </span>
+<span class="LineNr">205 </span>
+<span class="LineNr">206 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">207 </span><span class="Comment">&quot; Filetypes</span>
+<span class="LineNr">208 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">209 </span>
+<span class="LineNr">210 </span><span class="Comment">&quot; Prevent some files/directories from being listed</span>
+<span class="LineNr">211 </span><span class="Statement">let</span> <span class="Identifier">g:netrw_hide</span><span class="Statement">=</span><span class="Constant">1</span>
+<span class="LineNr">212 </span><span class="Statement">let</span> <span class="Identifier">g:netrw_list_hide</span><span class="Statement">=</span><span class="String">'\.pyc$,\.pyo$,\.o$,\.swp$,^\.svn/$,^\.DS_Store$'</span>
+<span class="LineNr">213 </span>
+<span class="LineNr">214 </span><span class="Comment">&quot; Current directory tracks the browsing directory in directory listing mode (netrw)</span>
+<span class="LineNr">215 </span><span class="Statement">let</span> <span class="Identifier">g:netrw_keepdir</span><span class="Statement">=</span><span class="Constant">0</span>
+<span class="LineNr">216 </span>
+<span class="LineNr">217 </span><span class="Comment">&quot; Turn on filetype-specific plugin loading and indentation</span>
+<span class="LineNr">218 </span><span class="Statement">filetype</span> <span class="Type">plugin</span> <span class="Type">indent</span> <span class="Type">on</span>
+<span class="LineNr">219 </span>
+<span class="LineNr">220 </span><span class="Comment">&quot; Set the correct filetype for non-standard files</span>
+<span class="LineNr">221 </span><span class="Statement">au</span> <span class="Type">BufRead</span>,<span class="Type">BufNewFile</span>,<span class="Type">BufFilePost</span> *.cls             <span class="Statement">set</span> <span class="PreProc">filetype</span>=tex
+<span class="LineNr">222 </span><span class="Statement">au</span> <span class="Type">BufRead</span>,<span class="Type">BufNewFile</span>,<span class="Type">BufFilePost</span> *.nc              <span class="Statement">set</span> <span class="PreProc">filetype</span>=nesc
+<span class="LineNr">223 </span><span class="Statement">au</span> <span class="Type">BufRead</span>,<span class="Type">BufNewFile</span>,<span class="Type">BufFilePost</span> *.Rnw             <span class="Statement">set</span> <span class="PreProc">filetype</span>=tex
+<span class="LineNr">224 </span><span class="Statement">au</span> <span class="Type">BufRead</span>,<span class="Type">BufNewFile</span>,<span class="Type">BufFilePost</span> [sS][cC]onstruct* <span class="Statement">set</span> <span class="PreProc">filetype</span>=python
+<span class="LineNr">225 </span><span class="Statement">au</span> <span class="Type">BufRead</span>,<span class="Type">BufNewFile</span>,<span class="Type">BufFilePost</span> [sS][cC]onscript* <span class="Statement">set</span> <span class="PreProc">filetype</span>=python
+<span class="LineNr">226 </span>
+<span class="LineNr">227 </span><span class="Comment">&quot; Define specific options for some filetypes</span>
+<span class="LineNr">228 </span><span class="Statement">au</span> <span class="Type">FileType</span> nesc        <span class="Statement">setlocal</span> <span class="PreProc">cindent</span>
+<span class="LineNr">229 </span><span class="Statement">au</span> <span class="Type">FileType</span> c,cpp,nesc  <span class="Statement">call</span> <span class="Normal">ModeC</span><span class="Special">()</span>
+<span class="LineNr">230 </span><span class="Statement">au</span> <span class="Type">FileType</span> pl          <span class="Statement">call</span> <span class="Normal">ModeBraces</span><span class="Special">()</span>
+<span class="LineNr">231 </span><span class="Statement">au</span> <span class="Type">FileType</span> python      <span class="Statement">call</span> <span class="Normal">ModePython</span><span class="Special">()</span>
+<span class="LineNr">232 </span><span class="Statement">au</span> <span class="Type">FileType</span> tex,Rnw     <span class="Statement">call</span> <span class="Normal">ModeTex</span><span class="Special">()</span>
+<span class="LineNr">233 </span><span class="Statement">au</span> <span class="Type">FileType</span> html,xhtml  <span class="Statement">call</span> <span class="Normal">ModeHtml</span><span class="Special">()</span>
+<span class="LineNr">234 </span><span class="Statement">au</span> <span class="Type">FileType</span> vim         <span class="Statement">setlocal</span> <span class="PreProc">textwidth</span>=0
+<span class="LineNr">235 </span>
+<span class="LineNr">236 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">237 </span><span class="Comment">&quot; Commands</span>
+<span class="LineNr">238 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">239 </span>
+<span class="LineNr">240 </span><span class="Statement">command</span>! Dos2Unix  <span class="Statement">:</span>call <span class="Normal">Dos2Unix</span>()
+<span class="LineNr">241 </span><span class="Statement">command</span>! RcEdit    <span class="Statement">:</span>e ~/<span class="Statement">.</span>vimrc
+<span class="LineNr">242 </span><span class="Statement">command</span>! RcReload  <span class="Statement">:</span>source ~/<span class="Statement">.</span>vimrc
+<span class="LineNr">243 </span>
+<span class="LineNr">244 </span>
+<span class="LineNr">245 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">246 </span><span class="Comment">&quot; Mappings for all files</span>
+<span class="LineNr">247 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">248 </span>
+<span class="LineNr">249 </span><span class="Comment">&quot; &lt;F2&gt; toggles inline spell checking</span>
+<span class="LineNr">250 </span><span class="Statement">map</span>  <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">F2</span><span class="Special">&gt;</span> :set spell!<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>:echo &quot;Spell Check: &quot; . strpart(&quot;OffOn&quot;, 3 * &amp;spell, 3)<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">251 </span><span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">F2</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-o</span><span class="Special">&gt;</span>:set spell!<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">252 </span>
+<span class="LineNr">253 </span><span class="Comment">&quot; &lt;F3&gt; reformats the whole file</span>
+<span class="LineNr">254 </span><span class="Comment">&quot;map  &lt;silent&gt; &lt;F3&gt; :call ReformatFile()&lt;CR&gt;</span>
+<span class="LineNr">255 </span><span class="Comment">&quot;imap &lt;silent&gt; &lt;F3&gt; &lt;C-o&gt;&lt;F3&gt;</span>
+<span class="LineNr">256 </span>
+<span class="LineNr">257 </span><span class="Comment">&quot; &lt;F4&gt; launches scons</span>
+<span class="LineNr">258 </span><span class="Statement">map</span>  <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">F4</span><span class="Special">&gt;</span> :!scons<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">259 </span><span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">F4</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-o</span><span class="Special">&gt;&lt;</span><span class="Special">F4</span><span class="Special">&gt;</span>
+<span class="LineNr">260 </span><span class="Statement">map</span>  <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">S-F4</span><span class="Special">&gt;</span> :!scons %:r<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">261 </span><span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">S-F4</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-o</span><span class="Special">&gt;&lt;</span><span class="Special">M-F4</span><span class="Special">&gt;</span>
+<span class="LineNr">262 </span><span class="Statement">map</span>  <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">M-F4</span><span class="Special">&gt;</span> :!scons -c<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">263 </span><span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">M-F4</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-o</span><span class="Special">&gt;&lt;</span><span class="Special">S-F4</span><span class="Special">&gt;</span>
+<span class="LineNr">264 </span>
+<span class="LineNr">265 </span><span class="Comment">&quot; Ctrl-K clears highlight (after a search)</span>
+<span class="LineNr">266 </span><span class="Statement">map</span>  <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-k</span><span class="Special">&gt;</span> :noh<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">267 </span><span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-k</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-o</span><span class="Special">&gt;&lt;</span><span class="Special">C-k</span><span class="Special">&gt;</span>
+<span class="LineNr">268 </span>
+<span class="LineNr">269 </span><span class="Comment">&quot; Move between visible lines and not between real lines</span>
+<span class="LineNr">270 </span><span class="Statement">map</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> k      gk
+<span class="LineNr">271 </span><span class="Statement">map</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> j      gj
+<span class="LineNr">272 </span><span class="Comment">&quot;map &lt;silent&gt; 0      g0</span>
+<span class="LineNr">273 </span><span class="Comment">&quot;map &lt;silent&gt; $      g$</span>
+<span class="LineNr">274 </span><span class="Statement">map</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">Up</span><span class="Special">&gt;</span>   gk
+<span class="LineNr">275 </span><span class="Statement">map</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">Down</span><span class="Special">&gt;</span> gj
+<span class="LineNr">276 </span><span class="Comment">&quot;map &lt;silent&gt; &lt;home&gt; g0</span>
+<span class="LineNr">277 </span><span class="Comment">&quot;map &lt;silent&gt; &lt;end&gt;  g$</span>
+<span class="LineNr">278 </span>
+<span class="LineNr">279 </span><span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">Up</span><span class="Special">&gt;</span>   <span class="Special">&lt;</span><span class="Special">C-o</span><span class="Special">&gt;&lt;</span><span class="Special">Up</span><span class="Special">&gt;</span>
+<span class="LineNr">280 </span><span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">Down</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-o</span><span class="Special">&gt;&lt;</span><span class="Special">Down</span><span class="Special">&gt;</span>
+<span class="LineNr">281 </span><span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">home</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-o</span><span class="Special">&gt;&lt;</span><span class="Special">home</span><span class="Special">&gt;</span>
+<span class="LineNr">282 </span><span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">end</span><span class="Special">&gt;</span>  <span class="Special">&lt;</span><span class="Special">C-o</span><span class="Special">&gt;&lt;</span><span class="Special">end</span><span class="Special">&gt;</span>
+<span class="LineNr">283 </span>
+<span class="LineNr">284 </span><span class="Comment">&quot; Ctrl-T creates a new tab and opens the file explorer</span>
+<span class="LineNr">285 </span><span class="Statement">map</span>  <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-t</span><span class="Special">&gt;</span> :Texplore<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">286 </span><span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-t</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">Esc</span><span class="Special">&gt;&lt;</span><span class="Special">C-t</span><span class="Special">&gt;</span>
+<span class="LineNr">287 </span>
+<span class="LineNr">288 </span><span class="Comment">&quot; Completion and tabs</span>
+<span class="LineNr">289 </span><span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">tab</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-r</span><span class="Special">&gt;</span>=CleverTab(0)<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">290 </span><span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">s-tab</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-r</span><span class="Special">&gt;</span>=CleverTab(1)<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">291 </span>
+<span class="LineNr">292 </span><span class="Comment">&quot; In visual mode, enclose the selection with the given character</span>
+<span class="LineNr">293 </span><span class="Comment">&quot;vnoremap </span><span class="String">&quot; s&quot;</span><span class="Comment">&quot;&lt;Esc&gt;P&lt;Right&gt;             &quot; breaks yanking into register in visual mode</span>
+<span class="LineNr">294 </span><span class="Statement">vnoremap</span> ' s''<span class="Special">&lt;</span><span class="Special">Esc</span><span class="Special">&gt;</span>P<span class="Special">&lt;</span><span class="Special">Right</span><span class="Special">&gt;</span>
+<span class="LineNr">295 </span><span class="Statement">vnoremap</span> ( s()<span class="Special">&lt;</span><span class="Special">Esc</span><span class="Special">&gt;</span>P<span class="Special">&lt;</span><span class="Special">Right</span><span class="Special">&gt;</span>
+<span class="LineNr">296 </span><span class="Statement">vnoremap</span> { s{}<span class="Special">&lt;</span><span class="Special">Esc</span><span class="Special">&gt;</span>P<span class="Special">&lt;</span><span class="Special">Right</span><span class="Special">&gt;</span>
+<span class="LineNr">297 </span><span class="Statement">vnoremap</span> [ s[]<span class="Special">&lt;</span><span class="Special">Esc</span><span class="Special">&gt;</span>P<span class="Special">&lt;</span><span class="Special">Right</span><span class="Special">&gt;</span>
+<span class="LineNr">298 </span>
+<span class="LineNr">299 </span><span class="Comment">&quot; Y yanks from the cursor to the end of the line, instead of being a synonym for yy</span>
+<span class="LineNr">300 </span><span class="Statement">map</span> Y y$
+<span class="LineNr">301 </span>
+<span class="LineNr">302 </span><span class="Comment">&quot; CTRL-CR sends current or highlighted line(s) to Mac OS Terminal.app</span>
+<span class="LineNr">303 </span><span class="Statement">map</span>  <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-CR</span><span class="Special">&gt;</span> :call SendToTerminal(0, 0)<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">304 </span><span class="Statement">vmap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-CR</span><span class="Special">&gt;</span> :call SendToTerminal(1, 0)<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">305 </span><span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-CR</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-o</span><span class="Special">&gt;&lt;</span><span class="Special">C-CR</span><span class="Special">&gt;</span>
+<span class="LineNr">306 </span>
+<span class="LineNr">307 </span><span class="Statement">map</span>  <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-M-CR</span><span class="Special">&gt;</span> :call SendToTerminal(0, 1)<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">308 </span><span class="Statement">vmap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-M-CR</span><span class="Special">&gt;</span> :call SendToTerminal(0, 1)<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">309 </span><span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-M-CR</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-o</span><span class="Special">&gt;&lt;</span><span class="Special">C-M-CR</span><span class="Special">&gt;</span>
+<span class="LineNr">310 </span>
+<span class="LineNr">311 </span>
+<span class="LineNr">312 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">313 </span><span class="Comment">&quot; Braces mode</span>
+<span class="LineNr">314 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">315 </span>
+<span class="LineNr">316 </span><span class="Statement">function</span>! ModeBraces<span class="Special">()</span>
+<span class="LineNr">317 </span>
+<span class="LineNr">318 </span><span class="Comment">    &quot; Automatically insert closing bracket</span>
+<span class="LineNr">319 </span>    <span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">buffer</span><span class="Special">&gt;</span> { {<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>}<span class="Special">&lt;</span><span class="Special">Esc</span><span class="Special">&gt;&lt;</span><span class="Special">Up</span><span class="Special">&gt;</span>o
+<span class="LineNr">320 </span>
+<span class="LineNr">321 </span><span class="Statement">endfunction</span>
+<span class="LineNr">322 </span>
+<span class="LineNr">323 </span>
+<span class="LineNr">324 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">325 </span><span class="Comment">&quot; HTML mode</span>
+<span class="LineNr">326 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">327 </span>
+<span class="LineNr">328 </span><span class="Statement">function</span>! ModeHtml<span class="Special">()</span>
+<span class="LineNr">329 </span>
+<span class="LineNr">330 </span>    <span class="Statement">setlocal</span> <span class="PreProc">tabstop</span>=2
+<span class="LineNr">331 </span>    <span class="Statement">setlocal</span> <span class="PreProc">shiftwidth</span>=2
+<span class="LineNr">332 </span>
+<span class="LineNr">333 </span><span class="Statement">endfunction</span>
+<span class="LineNr">334 </span>
+<span class="LineNr">335 </span>
+<span class="LineNr">336 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">337 </span><span class="Comment">&quot; LaTeX mode</span>
+<span class="LineNr">338 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">339 </span>
+<span class="LineNr">340 </span><span class="Statement">function</span>! ModeTex<span class="Special">()</span>
+<span class="LineNr">341 </span>
+<span class="LineNr">342 </span><span class="Comment">    &quot; Automatically close math mode</span>
+<span class="LineNr">343 </span><span class="Comment">    &quot;inoremap &lt;buffer&gt; $ $$&lt;Left&gt;</span>
+<span class="LineNr">344 </span>
+<span class="LineNr">345 </span><span class="Statement">endfunction</span>
+<span class="LineNr">346 </span>
+<span class="LineNr">347 </span>
+<span class="LineNr">348 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">349 </span><span class="Comment">&quot; C/C++ mode</span>
+<span class="LineNr">350 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">351 </span>
+<span class="LineNr">352 </span><span class="Statement">function</span>! ModeC<span class="Special">()</span>
+<span class="LineNr">353 </span>
+<span class="LineNr">354 </span>    <span class="Statement">call</span> <span class="Normal">ModeBraces</span><span class="Special">()</span>
+<span class="LineNr">355 </span>
+<span class="LineNr">356 </span><span class="Comment">    &quot; Comment a block of lines</span>
+<span class="LineNr">357 </span>    <span class="Statement">vnoremap</span> <span class="Special">&lt;</span><span class="Special">buffer</span><span class="Special">&gt;</span> / <span class="Special">&lt;</span><span class="Special">Esc</span><span class="Special">&gt;</span>:'&lt;-1put ='/* '<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>:'&gt;put =' */'<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="LineNr">358 </span>
+<span class="LineNr">359 </span><span class="Statement">endfunction</span>
+<span class="LineNr">360 </span>
+<span class="LineNr">361 </span>
+<span class="LineNr">362 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">363 </span><span class="Comment">&quot; Python mode</span>
+<span class="LineNr">364 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">365 </span>
+<span class="LineNr">366 </span><span class="Statement">function</span>! ModePython<span class="Special">()</span>
+<span class="LineNr">367 </span>
+<span class="LineNr">368 </span><span class="Comment">    &quot; Disable the smartindent feature that puts # characters at the beginning of the line</span>
+<span class="LineNr">369 </span>    <span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">buffer</span><span class="Special">&gt;</span> # X<span class="Special">&lt;</span><span class="Special">C-H</span><span class="Special">&gt;</span>#
+<span class="LineNr">370 </span>
+<span class="LineNr">371 </span><span class="Comment">    &quot; Close multi-lines comments automatically</span>
+<span class="LineNr">372 </span>    <span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">buffer</span><span class="Special">&gt;</span> &quot;&quot;&quot; &quot;&quot;&quot;&quot;&quot;&quot;<span class="Special">&lt;</span><span class="Special">Left</span><span class="Special">&gt;&lt;</span><span class="Special">Left</span><span class="Special">&gt;&lt;</span><span class="Special">Left</span><span class="Special">&gt;</span>
+<span class="LineNr">373 </span>
+<span class="LineNr">374 </span><span class="Comment">    &quot; Close single quotes automatically</span>
+<span class="LineNr">375 </span><span class="Comment">    &quot;inoremap &lt;buffer&gt; ' ''&lt;Left&gt;</span>
+<span class="LineNr">376 </span>
+<span class="LineNr">377 </span><span class="Statement">endfunction</span>
+<span class="LineNr">378 </span>
+<span class="LineNr">379 </span>
+<span class="LineNr">380 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">381 </span><span class="Comment">&quot; Miscellaneous</span>
+<span class="LineNr">382 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">383 </span>
+<span class="LineNr">384 </span><span class="Comment">&quot; Remove trailing spaces when writing non-binary buffers</span>
+<span class="LineNr">385 </span><span class="Statement">au</span> <span class="Type">BufWrite</span> * <span class="Statement">if</span> ! &amp;bin | <span class="Statement">call</span> <span class="Normal">RemoveTrailingSpaces</span><span class="Special">()</span> | <span class="Statement">endif</span>
+<span class="LineNr">386 </span>
+<span class="LineNr">387 </span><span class="Comment">&quot; Try to restore cursor position when reading a buffer, if any</span>
+<span class="LineNr">388 </span><span class="Statement">au</span> <span class="Type">BufRead</span> * <span class="Statement">if</span> <span class="Identifier">line</span><span class="Special">(</span><span class="String">&quot;'\&quot;&quot;</span><span class="Special">)</span> <span class="Statement">&gt;</span> <span class="Constant">0</span> <span class="Statement">&amp;&amp;</span> <span class="Identifier">line</span><span class="Special">(</span><span class="String">&quot;'\&quot;&quot;</span><span class="Special">)</span> <span class="Statement">&lt;=</span> <span class="Identifier">line</span><span class="Special">(</span><span class="String">&quot;$&quot;</span><span class="Special">)</span> | <span class="Statement">exe</span> <span class="String">&quot;normal! g`\&quot;&quot;</span> <span class="Statement">|</span> <span class="Statement">endif</span>
+<span class="LineNr">389 </span>
+<span class="LineNr">390 </span><span class="Comment">&quot; Always set the current working directory to the currently edited file</span>
+<span class="LineNr">391 </span><span class="Statement">au</span> <span class="Type">BufRead</span>,<span class="Type">BufNewFile</span>,<span class="Type">BufFilePost</span> * <span class="Statement">lcd</span> <span class="Identifier">%</span><span class="Identifier">:p:h</span>
+<span class="LineNr">392 </span>
+<span class="LineNr">393 </span><span class="Comment">&quot; Delete any buffer that becomes hidden</span>
+<span class="LineNr">394 </span><span class="Statement">au</span> <span class="Type">BufReadPost</span>,<span class="Type">BufNewFile</span>,<span class="Type">BufFilePost</span> * <span class="Statement">set</span> <span class="PreProc">bufhidden</span>=delete
+<span class="LineNr">395 </span>
+<span class="LineNr">396 </span>
+<span class="LineNr">397 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">398 </span><span class="Comment">&quot; Source local vimrc extension</span>
+<span class="LineNr">399 </span><span class="Comment">&quot; ==============================</span>
+<span class="LineNr">400 </span>
+<span class="LineNr">401 </span><span class="Statement">if</span> <span class="Identifier">filereadable</span><span class="Special">(</span><span class="Identifier">glob</span><span class="Special">(</span><span class="String">&quot;~/.vimrc.local&quot;</span><span class="Special">))</span>
+<span class="LineNr">402 </span>    <span class="Statement">source</span> ~/<span class="Statement">.</span>vimrc<span class="Statement">.</span>local
+<span class="LineNr">403 </span><span class="Statement">endif</span>
+</pre>
+</body>
+</html>
